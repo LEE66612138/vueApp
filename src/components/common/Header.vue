@@ -1,8 +1,8 @@
 <template>
   <div class="header" :style="{background:bgColor}">
-    <span class="home">首页</span>
+    <span class="home" @click="$emit('home')">首页</span>
     <h1 class="title">
-      <slot name="title">Movie</slot>
+      <slot name="title">错误</slot>
     </h1>
   </div>
 </template>
