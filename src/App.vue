@@ -3,7 +3,7 @@
     <common-header @home="home" :bgColor="bg">
         <span slot="title">{{ title }}</slot></span>
     </common-header>
-    <router-view/>
+    <router-view class="content"/>
     <common-footer @change="switchTab" :bgColor="bg"></common-footer>
   </div>
 </template>
@@ -47,10 +47,6 @@
               default:
                 this.bg="rgb(33, 150, 243)";
             }
-
-
-
-
       }
   }
 
@@ -61,5 +57,7 @@
 </script>
 
 <style>
-
+.content{
+  margin: 1rem 0;
+}
 </style>
