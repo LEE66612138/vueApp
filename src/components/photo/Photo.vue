@@ -6,11 +6,12 @@
     <!--<common-footer bgColor="rgb(63, 81, 181)"></common-footer>-->
   <!--</div>-->
   <ul>
-    <li class="photo" v-for="(item,index) in photoDetail" :key="index">
+    <li class="photo" v-for="(item,index) in photoList" :key="index">
       <router-link :to="'/photoDetail/' + index">
         <img :src="item.src" alt="">
       </router-link>
     </li>
+    <br style="clear:both">
   </ul>
 </template>
 
@@ -28,13 +29,15 @@ import axios from 'axios'
     created(){
       axios.get('/static/data/photodata.json').then(res=>{
           console.log(res)
-        this.photoDetail = res.data.photoData
+        this.photoList = res.data.photoData,
+          this.$store.dispatch('setPhotoListAction', res.data.photoData);
+
 
       })
     },
     data(){
         return{
-          photoDetail: []
+          photoList: []
         }
     }
   }
